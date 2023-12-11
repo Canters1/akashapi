@@ -13,7 +13,8 @@ document.getElementsByClassName(".apiread").textContent = data.content;
 }
 getData(URL); */
 
-const URl = "https://pokeapi.co/api/v2/pokemon/piplup"
+/* const URL = "https://www.amiiboapi.com/api/" */
+const URL = "https://www.amiiboapi.com/api/amiibo/?name=Peach"
 async function getdata(URL){
     try{
         const res = await fetch(URL);
@@ -24,7 +25,8 @@ async function getdata(URL){
         console.log(error);
     }
 }
-getdata(URl)
+getdata(URL)
+
 
 
 
