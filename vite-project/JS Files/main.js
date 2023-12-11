@@ -13,15 +13,18 @@ document.getElementsByClassName(".apiread").textContent = data.content;
 }
 getData(URL); */
 
- async function getData(){
-let res = await fetch(
-    "https://api.quotable.io/random"
-);
-let data = await res.json();
-console.log(data);
-data.results.forEach((quote)=> console.log(quote));
+const URl = "https://pokeapi.co/api/v2/pokemon/piplup"
+async function getdata(URL){
+    try{
+        const res = await fetch(URL);
+        console.log(res);
+        const data= await res.json();
+        console.log(data);
+    } catch(error) {
+        console.log(error);
+    }
 }
-getData();
+getdata(URl)
 
 
 
