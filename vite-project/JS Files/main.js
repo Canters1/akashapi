@@ -35,28 +35,60 @@ async function getdata(URL){
 }
 const amiibodata = getdata(URL) */
 
-const RL ="https://www.amiiboapi.com/api/";
 
-async function getData(URL){
+
+const Domselectors={
+    screen: document.querySelector(".flex-container"),
+    Amiiboname: document.querySelector(".amiibo-name"),
+    form: document.getElementById(".form"),
+
+}
+
+const URl = `https://www.amiiboapi.com/api/`;
+
+
+
+
+
+
+
+
+
+
+
+async function getData(URL) {
     try {
-        if(response.status !=100){
-            let amiibo= "Mario"
+        if (response.status != 100) {
+            let amiibo = "Mario"
             throw new Error(amiibo)
         }
-    const response = await fetch(URL);
-    console.log(response);
-    const data = await response.json();
-    console.log(data);
-    document.querySelector("h1").textContent= data.content;
-    document.querySelector("h2").textContent= data.author;
-    } catch(error){
-           console.log(error)
+        const response = await fetch(URL);
+        console.log(response);
+        const data = await response.json();
+        console.log(data);
+        document.querySelector("h1").textContent = data.content;
+        document.querySelector("h2").textContent = data.author;
+    } catch (error) {
+        console.log(error)
     }
 }
-getData(RL);
+
+const AmiiboData=  getData(URl);
 
 
+function AddAmiibo() {
+    document.querySelector(".flex-container").insertAdjacentHTML("beforeend",
+    `<div class="amiibocard">
+    <h1 class="title"> ${AmiiboData.name}
+    `)
+};
 
+
+Domselectors.form.addEventListener("submit", (e)=> {
+    e.preventDefault();
+
+    AddAmiibo();
+})
 
 
 
