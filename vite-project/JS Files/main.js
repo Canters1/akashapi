@@ -44,7 +44,7 @@ const Domselectors={
 
 }
 
-const URl = `https://www.amiiboapi.com/api/`;
+const URL = `https://www.amiiboapi.com/api/`;
 
 
 
@@ -73,13 +73,14 @@ async function getData(URL) {
     }
 }
 
-const AmiiboData=  getData(URl);
+const AmiiboData =  getData(URL);
 
 
 function AddAmiibo() {
     document.querySelector(".flex-container").insertAdjacentHTML("beforeend",
     `<div class="amiibocard">
-    <h1 class="title"> ${AmiiboData.name}
+    <h1 class="title"> ${AmiiboData}<h1>
+    <h2 class="
     `)
 };
 
