@@ -42,9 +42,7 @@ const Domselectors={
     Amiiboname: document.querySelector(".amiibo-name"),
     form: document.getElementById(".form"),
 
-}
-
-const URL = `https://www.amiiboapi.com/api/`;
+};
 
 
 
@@ -56,7 +54,7 @@ const URL = `https://www.amiiboapi.com/api/`;
 
 
 
-async function getData(URL) {
+/* async function getData(URL) {
     try {
         if (response.status != 100) {
             let amiibo = "Mario"
@@ -71,25 +69,45 @@ async function getData(URL) {
     } catch (error) {
         console.log(error)
     }
-}
-
-const AmiiboData =  getData(URL);
+} */
 
 
-function AddAmiibo() {
+
+
+
+
+
+const Amiibodataset = 'https://www.amiiboapi.com/api/';
+
+async function getdata(URL){
+    try{
+        const res = await fetch(URL);
+        console.log(res);
+        const data= await res.json();
+        /* document.querySelector(".apiread").textContent = data.textConten */
+        console.log(data);
+    } catch(error) {
+        console.log(error);
+    }
+}; 
+
+getdata(Amiibodataset);
+
+
+/*  function AddAmiibo() {
     document.querySelector(".flex-container").insertAdjacentHTML("beforeend",
     `<div class="amiibocard">
-    <h1 class="title"> ${AmiiboData}<h1>
-    <h2 class="
+    <h1 class="title"> <h1>
+    <h2 class=""> ${Amiiboname} <h2>
     `)
-};
+};  */
 
-
+/* 
 Domselectors.form.addEventListener("submit", (e)=> {
     e.preventDefault();
 
     AddAmiibo();
 })
-
+ */
 
 
