@@ -37,7 +37,7 @@ const amiibodata = getdata(URL) */
 
 
 
-const Domselectors={
+const Domselectors = {
     screen: document.querySelector(".flex-container"),
     Amiiboname: document.querySelector(".amiibo-name"),
     form: document.getElementById(".form"),
@@ -77,30 +77,37 @@ const Domselectors={
 
 
 
-const Amiibodataset = 'https://www.amiiboapi.com/api/';
+const URL = 'https://www.amiiboapi.com/api/amiibo';
 
-async function getdata(URL){
-    try{
-        const res = await fetch(URL);
-        console.log(res);
-        const data= await res.json();
-        /* document.querySelector(".apiread").textContent = data.textConten */
-        console.log(data);
-    } catch(error) {
+async function getData(URL) {
+    try {
+        const response = await fetch(URL);
+        const data = await response.json(); //makes the data into JSON object we can use
+        console.log(data)
+    } catch (error) {
         console.log(error);
     }
-}; 
+}
+ const Amiibodata = getData(URL);
 
-getdata(Amiibodataset);
+
+ 
 
 
-/*  function AddAmiibo() {
+
+
+
+
+
+
+
+  function AddAmiibo() {
     document.querySelector(".flex-container").insertAdjacentHTML("beforeend",
     `<div class="amiibocard">
-    <h1 class="title"> <h1>
-    <h2 class=""> ${Amiiboname} <h2>
+    <h1 class="title">   <h1>
+    <h2 class="description">  <h2>
     `)
-};  */
+};  
 
 /* 
 Domselectors.form.addEventListener("submit", (e)=> {
