@@ -1,4 +1,9 @@
 
+
+const Domselectors={
+    Amiiboname: document.querySelector(".amiibo-name"),
+    form: document.querySelector(".form"),
+};
 /* const URL= "https://api.quotable.io/random"
 
 
@@ -15,12 +20,6 @@ getData(URL); */
 
 /* const URL = "https://www.amiiboapi.com/api/" */
 
-
-
-
-
-
-
 /* const URL = "https://www.amiiboapi.com/api/amiibo/?name=Peach"
 async function getdata(URL){
     try{
@@ -34,25 +33,6 @@ async function getdata(URL){
     }
 }
 const amiibodata = getdata(URL) */
-
-
-
-const Domselectors = {
-    screen: document.querySelector(".flex-container"),
-    Amiiboname: document.querySelector(".amiibo-name"),
-    form: document.getElementById(".form"),
-
-};
-
-
-
-
-
-
-
-
-
-
 
 /* async function getData(URL) {
     try {
@@ -70,16 +50,8 @@ const Domselectors = {
         console.log(error)
     }
 } */
-
-
-
-
-
-
-
-const URL = 'https://www.amiiboapi.com/api/amiibo';
-
-async function getData(URL) {
+const Apikey = 'https://www.amiiboapi.com/api/amiibo';
+/* async function getData(URL) {
     try {
         const response = await fetch(URL);
         const data = await response.json(); //makes the data into JSON object we can use
@@ -88,27 +60,19 @@ async function getData(URL) {
         console.log(error);
     }
 }
- const Amiibodata = getData(URL);
-
-
- 
-
-
-
-
-
-
-
-
-
-  function AddAmiibo() {
+const Amiibodata = getData(Apikey); */
+async function logAMiibos() {
+    const response = await fetch("https://www.amiiboapi.com/api/amiibo");
+    const amiibos = await response.json();
+    console.log(amiibos);
+  }
+function AddAmiibo() {
     document.querySelector(".flex-container").insertAdjacentHTML("beforeend",
     `<div class="amiibocard">
-    <h1 class="title">   <h1>
-    <h2 class="description">  <h2>
+    <h1 class="title"><h1>
+    <h2 class="description"><h2>
     `)
 };  
-
 /* 
 Domselectors.form.addEventListener("submit", (e)=> {
     e.preventDefault();
@@ -117,4 +81,10 @@ Domselectors.form.addEventListener("submit", (e)=> {
 })
  */
 
+DomSelectors.form.addEventListener("submit", (e) => {
+    e.preventDefault();
+  
+    AddAmiibo();
+  });
+  
 
