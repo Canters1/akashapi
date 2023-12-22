@@ -30,7 +30,7 @@ function AddAmiibo() {
     document.querySelector(".flex-container").insertAdjacentHTML("beforeend",
     `
     <div class="amiibocard">
-    <h1 class="title">              <h1>
+    <h1 class="title"><h1>
     <h2 class="description">        <h2>
     `
     )
@@ -42,4 +42,4 @@ DomSelectors.form.addEventListener("submit",function(event){
     console.log(DomSelectors.amiiboname.value);
      DomSelectors.form.addEventListener("submit", function(){
         (el)=> el.textContent = DomSelectors.amiiboname.value})}
-);
+);    
