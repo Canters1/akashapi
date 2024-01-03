@@ -1,39 +1,47 @@
 
-const DomSelectors={
-form:document.querySelector("#form"),
-h1s: document.querySelector(".h1"),
-h2s: document.querySelector(".h2"),
-search: document.querySelector(".amiibo-name")
-}
+import { DomSelectors } from "/JS Files/Dom.js"
+
+
+
 const Url= "https://www.amiiboapi.com/api/amiibo";
-async function getData(dat) {
+async function getData(money) {
     try {
-        const response = await fetch(dat);
+        const response = await fetch(money);
         const data = await response.json(); //makes the data into JSON object we can use
         console.log(data)
     } catch (error) {
          console.log(error);
     }
     };
-    getData(Url)
-
-
+    const amiibo = getData(Url)
 ;
 function AddAmiibo() {
     document.querySelector(".flex-container").insertAdjacentHTML("beforeend",
     `
-    <div class="amiibocard">  <div>
+    <div class="amiibocard">        <div>
     <h1 class="title">             <h1>
     <h2 class="description">       <h2>
     `
     )
 };  
+ console.log(amiibo)
+
+function Searchfor(a){
+    let result;
+    if (Search=amiibo){
+    
+    } else {
+        result = 'Not Found'
+    }
+}
+
 
 const Search=
 DomSelectors.form.addEventListener("submit",function(event){
     event.preventDefault();
-    console.log(DomSelectors.search.value);
+    console.log(DomSelectors.amiiboname.value);
 
 DomSelectors.form.addEventListener("submit", function(){
         (el)=> el.textContent = DomSelectors.h1s.value})}
 );   
+ 
