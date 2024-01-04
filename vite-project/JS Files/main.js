@@ -14,24 +14,32 @@ async function getData(money) {
     }
     };
     const amiibo = getData(Url)
-;
-function AddAmiibo() {
+; 
+
+
+
+ function AddAmiibo() {
+       //dfw.forEach((mibo)=> {
     document.querySelector(".flex-container").insertAdjacentHTML("beforeend",
     `
-    <div class="amiibocard">        <div>
-    <h1 class="title">             <h1>
-    <h2 class="description">       <h2>
-    `
-    )
-};  
- console.log(amiibo)
+  
+    <div class="amiibocard">
+    <h1 class="amiiboname"> ${amiibo.character} <h1>
+    <img src="${amiibo.image}"  alt="" class="amiiboimage">
+    <h2 class="amiiboseries">${amiibo.amiiboSeries}<h2>  
+    <div>`
+    )};  
+ console.log(AddAmiibo)
 
-function Searchfor(a){
+
+
+/* function Searchfor(a){
     let result;
-    if (Search=amiibo){
+    if (a=amiibo){
     
     } else {
         result = 'Not Found'
+        console.log(result)
     }
 }
 
@@ -44,4 +52,4 @@ DomSelectors.form.addEventListener("submit",function(event){
 DomSelectors.form.addEventListener("submit", function(){
         (el)=> el.textContent = DomSelectors.h1s.value})}
 );   
- 
+  */
