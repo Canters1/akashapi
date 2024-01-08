@@ -11,6 +11,9 @@ async function getData(url) {
     console.log(error);
   }
 };
+const amiibodata = getData(Url)
+
+
 async function Amiibos() {
     const amiiboData = await getData(Url);
     if (amiiboData && amiiboData.amiibo) {
@@ -18,6 +21,8 @@ async function Amiibos() {
     }
   };
   Amiibos();
+
+
   
 
 function AddAmiibo(dfw) {
@@ -32,19 +37,23 @@ function AddAmiibo(dfw) {
     );
   });
 };
-
-
-/* function SearchforAmiibo(name, data) {
+/*  function SearchforAmiibo(name, data) {
   for (let i = 0; i < data.length; i++) {
     if (name === data[i].character) {
     return data[i];
     }
   }
   return("Cannot Find That Amiibo");
-};
-const Match = SearchforAmiibo( DomSelectors.amiiboname.value);
+}; */
+amiibodata.filter((data)=>data.amiibo.character === `SearchforAmiibo()`)
+
+
+const Match = SearchforAmiibo(DomSelectors.amiiboname.value);
+
+
 
 DomSelectors.form.addEventListener("submit", (e) => {
     e.preventDefault();
+    Amiibos()
   
-  }); */
+  }); 
