@@ -20,20 +20,7 @@ async function Amiibos() {
      AddAmiibo(amiiboData.amiibo);
     }
   };
-
-async function search(){
-  const amiibodata =  await getData(Url);
-  amiibodata.filter((x)=> x.amiibo.character).forEach(()=>{
-amiibodata.amiibo.character
-  })
-  for ( let x=0; i++; ){
-if(x= amiibodata){
-  return "Your Amiibo Cannot be Found";
-} else {
-
-}
-}}
-  
+Amiibos()
 
 function AddAmiibo(dfw) {
   dfw.forEach((d) => {
