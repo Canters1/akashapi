@@ -11,7 +11,7 @@ async function getData(url) {
     console.log(error);
   }
 };
-const amiibodata = getData(Url)
+ 
 
 
 async function Amiibos() {
@@ -20,9 +20,19 @@ async function Amiibos() {
      AddAmiibo(amiiboData.amiibo);
     }
   };
-  Amiibos();
 
+async function search(){
+  const amiibodata =  await getData(Url);
+  amiibodata.filter((x)=> x.amiibo.character).forEach(()=>{
+amiibodata.amiibo.character
+  })
+  for ( let x=0; i++; ){
+if(x= amiibodata){
+  return "Your Amiibo Cannot be Found";
+} else {
 
+}
+}}
   
 
 function AddAmiibo(dfw) {
@@ -37,23 +47,8 @@ function AddAmiibo(dfw) {
     );
   });
 };
-/*  function SearchforAmiibo(name, data) {
-  for (let i = 0; i < data.length; i++) {
-    if (name === data[i].character) {
-    return data[i];
-    }
-  }
-  return("Cannot Find That Amiibo");
-}; */
-amiibodata.filter((data)=>data.amiibo.character === `SearchforAmiibo()`)
-
-
-const Match = SearchforAmiibo(DomSelectors.amiiboname.value);
-
-
 
 DomSelectors.form.addEventListener("submit", (e) => {
     e.preventDefault();
-    Amiibos()
   
   }); 
