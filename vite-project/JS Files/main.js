@@ -14,18 +14,26 @@ async function getData(url) {
 
 
 async function Amiibos() {
-    const amiiboData = await getData(Url);
-    if (amiiboData && amiiboData.amiibo) {
-     filteredAmiibo(amiiboData.amiibo);
+    const amiiboData = await fetch(Url);
+    const usable= await amiiboData.json()
+    if (usable && usable.amiibo) {
+     filteredAmiibo(usable.amiibo);
     }
   };
-Amiibos()
+async function All(){
+  const amiibodata = await getData(Url);
+  if(amiibodata && amiibodata.amiibo){
+      Amiibo(amiibodata.amiibo)
+  }
+  
+}
+
 
 async function filteredAmiibo() {
   const data= await fetch(Url);
   const usabledata = await data.json();
-  const filtered = usabledata.filter((a)=>a.amiibo.character === `${DomSelectors.amiiboname.value}`)
-  filtered.forEach((d) => {
+  const filtered = usabledata.amiibo.filter((a)=>a.character === `${DomSelectors.amiiboname.value}`)
+  filtered.forEach((d) => { 
     document.querySelector(".flex-container").insertAdjacentHTML(
       "beforeend",
       `<div class="amiiboccard">
@@ -36,12 +44,23 @@ async function filteredAmiibo() {
     );
   });
 };
+  function Amiibo(das){
+  das.forEach((d)=> {
+    document.querySelector(".flex-container").insertAdjacentHTML(
+      "beforeend",
+      `<div class="amiiboccard" >
+<h1 class="amiiboname" >${d.character}</h1>
+<img src= "${d.image}" alt="" class="ItemImage">
+<h2 class="amiiboseries" >${d.amiiboSeries}</h2>
+</div>`
+  )})
+};
 
-
-
+All()
 DomSelectors.form.addEventListener("submit", (e) => {
     e.preventDefault();
+   
     Amiibos();
-    filteredAmiibo();
+    document.querySelector(".flex-container").innerHTML= ""
     
   }); 
