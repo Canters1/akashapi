@@ -8,18 +8,25 @@
     width: 100%;
     height: 100%
 }
+.body{
+    padding: 4040 color purple
+    ;
+}
 
-;
 
 
 .amiiboname {
     font-family: 'Baumans', system-ui;
     font-size: 30px;
     color: white;
-    align-self: center;
 }
 
-;
+.Text{
+    color: blueviolet;
+    font-family: 'Baumans', system-ui;
+    align-self: center;
+    margin-left: 450px;
+}
 
 .amiiboccard {
     margin-top: 50px;
@@ -38,14 +45,14 @@
     padding: white 10px 10px 10px 10px;
 }
 
-;
+
 
 .ItemImage {
     height: 200px;
     width: 200px;
 }
 
-;
+
 
 .amiiboseries {
     font-family: 'Baumans', system-ui;
@@ -55,11 +62,16 @@
     align-content: center;
 }
 
-;
+
 
 .headi {
     margin-left: 600px;
     color: blueviolet
 }
 
-;
+.error{
+    font-family: 'Baumans', system-ui;
+    color:blueviolet;
+    margin-left:210px;
+    font-size: 30px;
+}

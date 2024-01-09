@@ -51,16 +51,39 @@ async function filteredAmiibo() {
       `<div class="amiiboccard" >
 <h1 class="amiiboname" >${d.character}</h1>
 <img src= "${d.image}" alt="" class="ItemImage">
-<h2 class="amiiboseries" >${d.amiiboSeries}</h2>
+<h2 class="amiiboseries">${d.amiiboSeries}</h2>
+
 </div>`
   )})
 };
 
+function clear(){
+  DomSelectors.notfound.textContent=''
+}
+
+async function result(){
+  
+  try{
+    const res = await fetch(Url)
+    const data = await res.json()
+    const mara= data.amiibo.filter((a)=>a.character === `${DomSelectors.amiiboname.value}`)
+    if( mara.length === 0){
+      clear();
+      DomSelectors.notfound.textContent='The Amiibo You are looking for cannot be Found. Check Spelling and Uppercases'
+    } else {
+      console.log("Found");
+    }  }catch{error}}
+      
+    
 All()
-DomSelectors.form.addEventListener("submit", (e) => {
+DomSelectors.form.addEventListener("submit", async (e) => {
     e.preventDefault();
-   
-    Amiibos();
+    
     document.querySelector(".flex-container").innerHTML= ""
+    clear();
+    await Amiibos();
+    
+    
+    result();
     
   }); 
