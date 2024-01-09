@@ -11,19 +11,21 @@ async function getData(url) {
     console.log(error);
   }
 };
- 
 
 
 async function Amiibos() {
     const amiiboData = await getData(Url);
     if (amiiboData && amiiboData.amiibo) {
-     AddAmiibo(amiiboData.amiibo);
+     filteredAmiibo(amiiboData.amiibo);
     }
   };
 Amiibos()
 
-function AddAmiibo(dfw) {
-  dfw.forEach((d) => {
+async function filteredAmiibo() {
+  const data= await fetch(Url);
+  const usabledata = await data.json();
+  const filtered = usabledata.filter((a)=>a.amiibo.character === `${DomSelectors.amiiboname.value}`)
+  filtered.forEach((d) => {
     document.querySelector(".flex-container").insertAdjacentHTML(
       "beforeend",
       `<div class="amiiboccard">
@@ -35,7 +37,11 @@ function AddAmiibo(dfw) {
   });
 };
 
+
+
 DomSelectors.form.addEventListener("submit", (e) => {
     e.preventDefault();
-  
+    Amiibos();
+    filteredAmiibo();
+    
   }); 
